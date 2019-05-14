@@ -1,11 +1,3 @@
-//
-//  DetailViewController.swift
-//  Presidents
-//
-//  Created by Mikhail Sergeev on 13/05/2019.
-//  Copyright © 2019 Mikhail Sergeev. All rights reserved.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {

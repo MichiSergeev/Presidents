@@ -1,4 +1,4 @@
-// работаю на работе
+// работаю дома 14 мая
 
 import UIKit
 
@@ -6,18 +6,35 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
+    var presidents: [[String:String]]!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        
+        let path=Bundle.main.path(forResource: "PresidentList", ofType: "plist")!
+        let presidentInfo=NSDictionary(contentsOfFile: path)!
+        presidents=presidentInfo["presidents"]! as! [[String:String]]
+        
+        if let split=self.splitViewController {
+        
+            let controllers=split.viewControllers
+            self.detailViewController=(controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            
+        }
+        
+        
+        
+        
+        
+//        navigationItem.leftBarButtonItem = editButtonItem
+//
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+//        navigationItem.rightBarButtonItem = addButton
+//        if let split = splitViewController {
+//            let controllers = split.viewControllers
+//            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
     }
 
